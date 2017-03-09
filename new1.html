@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+    	.expander {
+		 border: 1px solid black;
+		 width: 250px;
+		}
+		.expander > .title {
+		  background-color: black;
+		  color: white; padding: .1em .3em; cursor: pointer;
+		}
+		.expander > .body {
+		  padding: .1em .3em;
+		}
+		.green{
+			background: green!important;
+		}
+		.red{
+			color: red!important;
+		}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="mycontroller">
+		<hi title1='mytitle' red="red1" change1="chan(title)">{{con}}</hi>
+	</div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+			app.directive('hi',function(){
+				return {
+					restrict:'E',
+					scope:{title:'=title1',c:'=red',change1:"&"},
+					template:`<div class="expander"> 
+						      <div class="title" ng-class='c' ng-click='change()'>{{title}}</div>
+						      <div class="body" ng-show="isShow" ng-transclude></div>
+						      <button ng-click='change1(t)'>changeTitle</button>
+						   </div>`,
+					replace:true,
+					transclude:true,
+					link:function(scope,element,attrs){
+						scope.isShow=true;
+						scope.t={title:"8000！"}
+						scope.change=function(){
+							this.isShow=!this.isShow;
+						}
+					}
+				}
+			})
+			app.controller('mycontroller',['$scope',function($scope){
+				$scope.mytitle='屌丝'
+				$scope.red1='green'
+				$scope.con="你好！"
+				$scope.chan=function(title){
+					$scope.mytitle=title;
+				}
+			}])
+	</script>
+</body>
+</html>
