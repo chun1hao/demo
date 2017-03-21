@@ -1,0 +1,78 @@
+.container p{
+	text-align: center;
+	height: 80px;
+	font-size: 40px;
+	line-height: 80px;
+	color: #fff;
+	margin: 0;
+	background: #006dcc;
+	
+}
+.btn{
+	color: #fff;
+	background: #49afcd;
+	outline: none;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.row-sear {
+	background:#27a9e3; 
+	margin: 0;
+	padding: 15px 0;
+
+}
+.row-sear .col-md-2{
+	width: 125px;
+	padding-right: 0
+}
+.row-sec{
+	background: #5bb75b;
+	padding:10px 0; 
+	margin-bottom: 10px;
+}
+.row{
+	margin: 0;
+}
+.row-sec .list{
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+}
+.row-sec .list .pic{
+	margin:0 5px;
+}
+.row-sec .list .pic1{
+	transform:rotate(180deg)
+}
+.row-sec .list:hover{
+	color: #000;
+}
+.row-thid li{
+	list-style:none ;
+	text-align: center;
+}
+.row-thid{
+	padding:10px; 
+	background:#da4f49;
+	border-radius: 10px;
+	color: #fff
+}
+.col-list{
+	cursor: pointer;
+}
+.col-list:hover{
+	color: #000;
+}
+.book-info{
+	width: 400px;
+	display: inline-block;
+}
+.modal-body{
+	overflow: hidden;
+	font-size: 16px;
+}
+.modal-body .col-md-12{
+	margin-bottom: 10px;
+}
+.btn-tk{
+	background:#006dcc;
+}

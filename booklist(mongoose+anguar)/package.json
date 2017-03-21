@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "debug": "^2.6.3",
+    "ee-first": "^1.1.1",
+    "ejs": "^2.5.6",
+    "encodeurl": "^1.0.1",
+    "escape-html": "^1.0.3",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "finalhandler": "^1.0.0",
+    "merge-descriptors": "^1.0.1",
+    "mongoose": "^4.9.0",
+    "on-finished": "^2.3.0"
+  },
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "book.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "book"
+  ],
+  "author": "ch",
+  "license": "ISC"
+}

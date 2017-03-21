@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>图书管理系统</title>
+	<script type="text/javascript" src='./js/jquery-1.12.3.js'></script>
+	<script type="text/javascript" src='./js/bootstrap.js'></script>
+	<link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="./css/book.css" />
+</head>
+<body ng-app="myApp" >
+	<div class="container"  ng-controller="myController">
+		<p>图书管理系统</p>
+		<div class="row row-sear" >
+			<div class="col-md-2 ">
+				<div class="btn-group">
+				  	<button class="btn">{{jiansuo}}</button>
+				  	<button class="btn dropdown-toggle" data-toggle="dropdown">
+				    	<span class="caret"></span>
+				  	</button>
+				  	<ul class="dropdown-menu">
+				    <!-- dropdown menu links -->
+					    <li><a href="#" ng-click="search(menu,'id')">书号检索</a></li>
+	                    <li><a href="#" ng-click="search(name,'name')">书名检索</a></li>
+	                    <li><a href="#" ng-click="search(author,'author')">作者检索</a></li>
+	                    <li><a href="#" ng-click="search(price,'price')">价格检索</a></li>  
+				  	</ul>
+				</div>
+			</div>
+			<div class="col-md-3">
+				 	<input type="text" class="form-control" ng-model='val' placeholder='{{option}}'>
+			</div>
+			<div class="col-md-3">
+				  	<button class="btn btn-primary btn-md btn-tk" data-toggle="modal" data-target="#myModal" ng-click='show(1)'>新增</button>
+					<div class="modal fade"  ng-class="isIn" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    	<div class="modal-dialog">
+			        	<div class="modal-content">
+			            	<div class="modal-header">
+			                	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			               	 <h4 class="modal-title" id="myModalLabel">{{leix}}</h4>
+			            	</div>
+				            <div class="modal-body ">
+				            	<div ng-show="iShow">确认删除《{{name12}}》吗?</div>
+				            	<div class="col-md-12" ng-hide='iShow'>
+				            		{{name}}：<input type="text" ng-model='val1' class="form-control book-info" placeholder={{name}}>
+				            	</div>
+				            	<div class="col-md-12" ng-hide='iShow'>
+				            		{{author}}：<input type="text" ng-model='val2' class="form-control book-info" placeholder={{author}}>
+				            	</div> 
+				            	<div class="col-md-12" ng-hide='iShow'>
+				            		{{price}}：<input type="text" ng-model='val3' class="form-control book-info" placeholder={{price}}>
+				            	</div>
+								
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">关闭</button>
+				                <button type="button" class="btn btn-primary" ng-click='push()' data-dismiss={{isS}}>{{sure}}</button>
+				            </div>
+			        	</div><!-- /.modal-content -->
+			    	</div><!-- /.modal -->
+				</div>
+			</div>
+		</div>
+		<div class="row row-2">
+			<div class="col-md-12 row-sec">	
+				<div class="col-md-2 list" ng-click="change('id')">{{menu}}<span class="caret pic" ng-class='cla'></span></div>
+				<div class="col-md-2 list" ng-click="change('name')">{{name}}<span class="caret pic" ng-class='cla '></span></div>
+				<div class="col-md-2 list" ng-click="change('author')">{{author}}<span class="caret pic" ng-class='cla'></span></div>
+				<div class="col-md-2 list" ng-click="change('price')">{{price}}<span class=" caret pic" ng-class='cla'></span></div>
+				
+			</div>
+		</div>
+		<div class="row row-3">
+			<ul class="col-md-12 row-thid"  ng-repeat="p in list | orderBy:type:bool | filter:fun(type1)">
+				<li class="col-md-2">{{p.id}}</li>
+				<li class="col-md-2">《{{p.name}}》</li>
+				<li class="col-md-2">{{p.author}}</li>
+				<li class="col-md-2">{{p.price | currency:'￥：'}}</li>
+				<li class="col-md-2 col-list" data-toggle="modal" data-target="#myModal" ng-click='show(2,p.name)'>修改
+					
+				</li>
+				<li class="col-md-2 col-list"  data-toggle="modal" data-target="#myModal" ng-click='show(3,p.name)'>删除</li>
+			
+				
+			</ul>		
+		</div>
+	
+	</div>
+	
+	
+	
+	<script type="text/javascript" src='./js/angular.js'></script>
+	<script type="text/javascript" src='./js/book.js'></script>
+</body>
+</html>
